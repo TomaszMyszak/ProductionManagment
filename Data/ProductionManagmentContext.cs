@@ -15,5 +15,9 @@ namespace ProductionManagment.Data
         }
 
         public DbSet<ProductionManagment.Models.City>? City { get; set; }
+
+        public DbSet<ProductionManagment.Models.Module>? Module { get; set; }
+
+        public DbSet<ProductionManagment.Models.SearchHistory>? SearchHistory { get; set; }
     }
 }

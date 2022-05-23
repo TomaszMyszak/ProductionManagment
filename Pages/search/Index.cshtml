@@ -1,0 +1,54 @@
+﻿@page
+@model ProductionManagment.Pages.search.IndexModel
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchHistory[0].ModuleName1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchHistory[0].ModuleName2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchHistory[0].ModuleName3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchHistory[0].ModuleName4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SearchHistory[0].ProductionCost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SearchHistory) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleName1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleName2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleName3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleName4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductionCost)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
