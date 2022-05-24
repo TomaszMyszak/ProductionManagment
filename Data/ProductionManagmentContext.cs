@@ -10,6 +10,7 @@ namespace ProductionManagment.Data
     public class ProductionManagmentContext : DbContext
     {
         public ProductionManagmentContext (DbContextOptions<ProductionManagmentContext> options)
+        #pragma warning disable CS8618
             : base(options)
         {
         }

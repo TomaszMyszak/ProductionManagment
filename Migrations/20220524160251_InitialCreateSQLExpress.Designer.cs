@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductionManagment.Data;
 
@@ -11,9 +12,10 @@ using ProductionManagment.Data;
 namespace ProductionManagment.Migrations
 {
     [DbContext(typeof(ProductionManagmentContext))]
-    partial class ProductionManagmentContextModelSnapshot : ModelSnapshot
+    [Migration("20220524160251_InitialCreateSQLExpress")]
+    partial class InitialCreateSQLExpress
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

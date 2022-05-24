@@ -12,6 +12,18 @@ namespace ProductionManagment.Pages.search
 {
     public class DeleteModel : PageModel
     {
+
+        #pragma warning disable CS8618
+        #pragma warning disable CS8601
+        #pragma warning disable CS8602
+        #pragma warning disable CS8604
+        // Class
+        #pragma warning restore CS8618
+        #pragma warning restore CS8601
+        #pragma warning restore CS8602
+        #pragma warning restore CS8604
+
+
         private readonly ProductionManagment.Data.ProductionManagmentContext _context;
 
         public DeleteModel(ProductionManagment.Data.ProductionManagmentContext context)

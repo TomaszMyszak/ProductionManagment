@@ -10,6 +10,17 @@ using ProductionManagment.Models;
 
 namespace ProductionManagment.Pages.Modules
 {
+
+        #pragma warning disable CS8618
+        #pragma warning disable CS8601
+        #pragma warning disable CS8602
+        #pragma warning disable CS8604
+        // Class
+        #pragma warning restore CS8618
+        #pragma warning restore CS8601
+        #pragma warning restore CS8602
+        #pragma warning restore CS8604
+
     public class DeleteModel : PageModel
     {
         private readonly ProductionManagment.Data.ProductionManagmentContext _context;
