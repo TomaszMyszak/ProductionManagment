@@ -24,6 +24,7 @@
   <ItemGroup>
     <Folder Include="DAL\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Pages\" />
   </ItemGroup>
 
 </Project>

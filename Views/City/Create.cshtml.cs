@@ -10,6 +10,10 @@ using ProductionManagment.Models;
 
 namespace ProductionManagment.Pages.city
 {
+
+#pragma warning disable CS8618
+#pragma warning disable CS8602
+
     public class CreateModel : PageModel
     {
         private readonly ProductionManagment.Data.ProductionManagmentContext _context;
