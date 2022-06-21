@@ -20,5 +20,7 @@ namespace ProductionManagment.Data
         public DbSet<ProductionManagment.Models.Module>? Module { get; set; }
 
         public DbSet<ProductionManagment.Models.SearchHistory>? SearchHistory { get; set; }
+
+        public DbSet<ProductionManagment.Models.Product> Product { get; set; }
     }
 }

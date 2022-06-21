@@ -4,92 +4,92 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.EntityFrameworkCore;
 using ProductionManagment.Data;
 using ProductionManagment.Models;
 
+
 namespace ProductionManagment.Controllers
 {
-    public class ModulesController : Controller
+    public class ProducktController : Controller
     {
         private readonly ProductionManagmentContext _context;
 
-        public ModulesController(ProductionManagmentContext context)
+        public ProducktController(ProductionManagmentContext context)
         {
             _context = context;
         }
 
-        // GET: Modules
+        // GET: Produckt
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Module.ToListAsync());
+              return View(await _context.Product.ToListAsync());
         }
 
-        // GET: Modules/Details/5
+        // GET: Produckt/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Module == null)
+            if (id == null || _context.Product == null)
             {
                 return NotFound();
             }
 
-            var @module = await _context.Module
+            var product = await _context.Product
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (@module == null)
+            if (product == null)
             {
                 return NotFound();
             }
 
-            return View(@module);
+            return View(product);
         }
 
-        // GET: Modules/Create
+        // GET: Produckt/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Modules/Create
+        // POST: Produckt/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Code,Name,Price,AssemblyTime,Weight,Description")] Module @module)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Modules,Cost")] Product product)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(@module);
+                _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(@module);
+            return View(product);
         }
 
-        // GET: Modules/Edit/5
+        // GET: Produckt/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Module == null)
+            if (id == null || _context.Product == null)
             {
                 return NotFound();
             }
 
-            var @module = await _context.Module.FindAsync(id);
-            if (@module == null)
+            var product = await _context.Product.FindAsync(id);
+            if (product == null)
             {
                 return NotFound();
             }
-            return View(@module);
+            return View(product);
         }
 
-        // POST: Modules/Edit/5
+        // POST: Produckt/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Code,Name,Price,AssemblyTime,Weight,Description")] Module @module)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Modules,Cost")] Product product)
         {
-            if (id != @module.Id)
+            if (id != product.Id)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace ProductionManagment.Controllers
             {
                 try
                 {
-                    _context.Update(@module);
+                    _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ModuleExists(@module.Id))
+                    if (!ProductExists(product.Id))
                     {
                         return NotFound();
                     }
@@ -114,52 +114,49 @@ namespace ProductionManagment.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(@module);
+            return View(product);
         }
 
-        // GET: Modules/Delete/5
+        // GET: Produckt/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Module == null)
+            if (id == null || _context.Product == null)
             {
                 return NotFound();
             }
 
-            var @module = await _context.Module
+            var product = await _context.Product
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (@module == null)
+            if (product == null)
             {
                 return NotFound();
             }
 
-            return View(@module);
+            return View(product);
         }
 
-        // POST: Modules/Delete/5
+        // POST: Produckt/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Module == null)
+            if (_context.Product == null)
             {
-                return Problem("Entity set 'ProductionManagmentContext.Module'  is null.");
+                return Problem("Entity set 'ProductionManagmentContext.Product'  is null.");
             }
-            var @module = await _context.Module.FindAsync(id);
-            if (@module != null)
+            var product = await _context.Product.FindAsync(id);
+            if (product != null)
             {
-                _context.Module.Remove(@module);
+                _context.Product.Remove(product);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ModuleExists(int id)
+        private bool ProductExists(int id)
         {
-          return _context.Module.Any(e => e.Id == id);
+          return _context.Product.Any(e => e.Id == id);
         }
-
-
-      
     }
 }

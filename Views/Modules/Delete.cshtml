@@ -10,9 +10,12 @@
 <div>
     <h4>Module</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Code)
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h1 class="m-0 font-weight-bold text-primary">Add new module</h1>
+        <div class="row">
+            <div class="col-md-4"  align-items: center>
+                @Html.DisplayNameFor(model => model.Code)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Code)
@@ -47,7 +50,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
-    </dl>
+            </dl>
+</div>
+</div>
+</div>
+</div>
+</div>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />

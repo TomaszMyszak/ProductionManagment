@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DAL\**" />
+    <Compile Remove="Pages\**" />
+    <Content Remove="DAL\**" />
+    <Content Remove="Pages\**" />
+    <EmbeddedResource Remove="DAL\**" />
+    <EmbeddedResource Remove="Pages\**" />
+    <None Remove="DAL\**" />
+    <None Remove="Pages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -22,9 +33,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DAL\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Pages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="Views\Home\View.cshtml" />
+    <None Include="Views\Modules\Create.cshtml" />
+    <None Include="Views\Modules\Delete.cshtml" />
+    <None Include="Views\Modules\Details.cshtml" />
+    <None Include="Views\Modules\Edit.cshtml" />
+    <None Include="Views\Modules\Index.cshtml" />
   </ItemGroup>
 
 </Project>
